@@ -1,10 +1,16 @@
-import java.util.Map;
+import tm.Head;
+import tm.Tape;
 
 public class TuringMachine {
-
-	public static void main(String[] args) {
-		Tape tm1 = new Tape();
-		tm1.createInput("00010101010111");
-		tm1.displayTape();
+	
+	private int state = 0;
+	private Head head;
+	
+	public TuringMachine(String input) {
+		this.head = new Head(input);
+	}
+	
+	public void displayTape() {
+		this.head.displayTape();
 	}
 }
