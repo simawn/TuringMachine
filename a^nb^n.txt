@@ -1,0 +1,16 @@
+0
+4
+0 a 1 x r
+0 y 3 y r
+1 a 1 a r
+
+1 y 1 y r
+1 b 2 y l
+   
+2 a 2 a l
+2 y 2 y l
+2 x 0 x r
+       
+3 y 3 y r
+3 # 4 # l
+
