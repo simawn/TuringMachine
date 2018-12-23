@@ -1,16 +1,14 @@
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Scanner;
+import tm.TuringMachine;
 
 public class Driver {
 
 	public static void main(String[] args) {
 		
-		Scanner kb = new Scanner(System.in);
-		//System.out.println("Enter transition file path:");
-		//TuringMachine tm = new TuringMachine(kb.nextLine());
-		TuringMachine tm = new TuringMachine("a^nb^n.txt"); //test
+		//TODO: Custom inputs
+		TuringMachine tm = new TuringMachine("a^nb^n.txt", false); //(input file path, display tape after each step?)
+		tm.runInput("aabb");
+		tm.runInput("ba");
+		tm.runInput("aaaaabbbbb");
 		
 		/*
 		 * Blank character: #

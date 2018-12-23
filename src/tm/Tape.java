@@ -11,23 +11,26 @@ public class Tape {
 		createInput(input);
 	}
 	
-	private void moveLeft() {
+	protected void moveLeft() {
 		this.headPos -= 1;
 	}
 	
-	private void moveRight() {
+	protected void moveRight() {
 		this.headPos += 1;
 	}
 	
-	private void resetHead() {
+	protected void resetHead() {
 		this.headPos = 0; 
 	}
 	
-	private void write(char c) {
+	protected void write(char c) {
 		this.tapeRoll.put(this.headPos, c);
 	}
 	
-	private char read() {
+	protected char read() {
+		if (this.tapeRoll.get(this.headPos) == null) {
+			return '#';
+		}
 		return this.tapeRoll.get(this.headPos);
 	}
 	
@@ -40,6 +43,6 @@ public class Tape {
 	}
 	
 	public void displayTape() {
-		this.tapeRoll.entrySet();
+		System.out.println(this.tapeRoll.entrySet());
 	}
 }
