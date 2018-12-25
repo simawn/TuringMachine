@@ -51,6 +51,7 @@ public class TuringMachine {
 				}
 				line++;
 			}
+			scTFile.close();
 		} catch (IOException e) {
 			System.out.println("Error reading file");
 			System.exit(1);

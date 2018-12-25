@@ -3,7 +3,7 @@ package tm;
 import java.util.HashMap;
 
 //directed graph
-public class TDiagram {
+class TDiagram {
 	
 	class Vertex {
 		private int state;
@@ -70,11 +70,11 @@ public class TDiagram {
 	
 	private HashMap<Integer, Vertex> adjList;
 	
-	public TDiagram() {
+	TDiagram() {
 		this.adjList = new HashMap<Integer, Vertex>();
 	}
 	
-	public void addData(int currState, char read, int nextState, char write, char move) { //This is the data from the input file
+	void addData(int currState, char read, int nextState, char write, char move) { //This is the data from the input file
 		//Check if key(vertex), if not, create a new vertex and add the edge, otherwise, add a new edge to the existing vertex
 		if(this.adjList.get(currState) != null) {
 			this.addEdge(currState, nextState, read, write, move);
@@ -93,7 +93,7 @@ public class TDiagram {
 		this.adjList.get(from).addEdge(Character.toLowerCase(from), Character.toLowerCase(to), Character.toLowerCase(read), Character.toLowerCase(write), Character.toLowerCase(move));
 	}
 
-	public HashMap<Integer, Vertex> getAdjList() {
+	HashMap<Integer, Vertex> getAdjList() {
 		return adjList;
 	}
 }

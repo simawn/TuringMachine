@@ -1,33 +1,33 @@
 package tm;
 import java.util.HashMap;
 
-public class Tape {
+class Tape {
 	
-	protected HashMap<Integer, Character> tapeRoll;
+	HashMap<Integer, Character> tapeRoll;
 	private int headPos = 0;
 	
-	public Tape(String input) {
+	Tape(String input) {
 		this.tapeRoll = new HashMap<Integer, Character>();
 		createInput(input);
 	}
 	
-	protected void moveLeft() {
+	void moveLeft() {
 		this.headPos -= 1;
 	}
 	
-	protected void moveRight() {
+	void moveRight() {
 		this.headPos += 1;
 	}
 	
-	protected void resetHead() {
+	void resetHead() {
 		this.headPos = 0; 
 	}
 	
-	protected void write(char c) {
+	void write(char c) {
 		this.tapeRoll.put(this.headPos, c);
 	}
 	
-	protected char read() {
+	char read() {
 		if (this.tapeRoll.get(this.headPos) == null) {
 			return '#';
 		}
@@ -42,7 +42,7 @@ public class Tape {
 		this.resetHead();
 	}
 	
-	public void displayTape() {
+	void displayTape() {
 		System.out.println(this.tapeRoll.entrySet());
 	}
 }
