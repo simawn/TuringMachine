@@ -65,7 +65,8 @@ public class TuringMachine {
 		}
 	}
 	
-	public void runInput(String input) {
+	public boolean runInput(String input) {
+		boolean accept = false;
 		this.tape = new Tape(input);
 		
 		while(this.curStep < TuringMachine.MAX_STEPS) { //While the max number of steps is not reached.
@@ -76,7 +77,7 @@ public class TuringMachine {
 			}
 			
 			if(this.finState.contains(this.curState)) { //When it enters a final state
-				System.out.println("Input " + input + " is accepted! Done in " + this.curStep + " step(s).");
+				accept = true;
 				break;
 			}
 			
@@ -88,7 +89,7 @@ public class TuringMachine {
 			try {
 				write = this.tDiagram.getAdjList().get(this.curState).getEdgeList().get(reading).getWrite();
 			} catch (NullPointerException e) {
-				System.out.println("Input " + input + " is rejected! Done in " + this.curStep + " step(s).");
+				accept = false;
 				break;
 			}
 			char move = this.tDiagram.getAdjList().get(this.curState).getEdgeList().get(reading).getMove();
@@ -110,9 +111,17 @@ public class TuringMachine {
 		}
 		if(this.curStep > TuringMachine.MAX_STEPS) {
 			System.out.println("Max number of steps reached.");
+			return false;
+		}
+		
+		if(accept) {
+			System.out.println("The input: " + input + " is ACCEPTED. Done in " + this.curStep + " step(s)");
+		} else {
+			System.out.println("The input: " + input + " is REJECTED. Done in " + this.curStep + " step(s)");
 		}
 		//Reset
 		this.curState = this.iniState;
 		this.curStep = 0;
+		return accept;
 	}
 }
