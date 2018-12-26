@@ -1,26 +1,31 @@
 package tm;
-import java.util.HashMap;
+
+import java.util.Arrays;
+import java.util.TreeMap; //Using tree map so tape display is sorted
+
 
 class Tape {
 	
-	HashMap<Integer, Character> tapeRoll;
+	TreeMap<Integer, Character> tapeRoll;
+	TreeMap<Integer, Character> headTrack; //used for display
 	private int headPos = 0;
 	
 	Tape(String input) {
-		this.tapeRoll = new HashMap<Integer, Character>();
+		this.tapeRoll = new TreeMap<Integer, Character>();
+		this.headTrack = new TreeMap<Integer, Character>();
 		createInput(input);
 	}
 	
 	void moveLeft() {
-		this.headPos -= 1;
+		this.headUpdate(-1);
 	}
 	
 	void moveRight() {
-		this.headPos += 1;
+		this.headUpdate(1);
 	}
 	
 	void resetHead() {
-		this.headPos = 0; 
+		this.headUpdate(0);
 	}
 	
 	void write(char c) {
@@ -42,7 +47,23 @@ class Tape {
 		this.resetHead();
 	}
 	
+	private void headUpdate(int direction) {
+		if(direction == 0) {
+			this.headPos = 0; 
+			this.headTrack.clear();
+		} else {
+			this.headTrack.put(this.headPos, ' ');
+			this.headPos += direction;
+		} 
+		this.headTrack.put(this.headPos, '^');
+		if(!this.tapeRoll.containsKey(this.headPos)) { //If current head position does not have any key assigned on tape
+			this.tapeRoll.put(this.headPos, '#');
+		}
+	}
+	
 	void displayTape() {
-		System.out.println(this.tapeRoll.entrySet());
+		System.out.println(Arrays.toString(this.tapeRoll.values().toArray()));
+		System.out.println(Arrays.toString(this.headTrack.values().toArray()));
+		System.out.println();
 	}
 }

@@ -10,7 +10,7 @@ public class Driver {
 		System.out.println("Enter transition diagram path:");
 		String path = sc.nextLine();
 		
-		TuringMachine tm = new TuringMachine(path, false); //(input file path, display tape after each step?)
+		TuringMachine tm = new TuringMachine(path, true); //(input file path, display tape after each step?)
 		
 		boolean done = false;
 		while(!done) {
@@ -23,6 +23,5 @@ public class Driver {
 				done = true;
 			}
 		}
-		sc.close();
 	}
 }

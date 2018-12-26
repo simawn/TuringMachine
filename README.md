@@ -20,6 +20,7 @@ Following the format for transition function:
 
 The input format of the .txt should be:
 ```sh
+//(Optional) Comment
 <Initial state>
 <List of final states>
 <Current state> <Read> <Next State> <Write> <Move>

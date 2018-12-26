@@ -1,0 +1,65 @@
+//Accepts an equal number of 'a', 'b', and 'c', in any order
+0
+17
+0 x 0 x r
+0 a 1 x r
+0 b 2 x r
+0 c 3 x r
+0 # 17 # l
+
+1 a 1 a r
+1 x 1 x r
+1 b 4 x r
+1 c 5 x r
+
+2 x 2 x r
+2 b 2 b r
+2 a 8 x r
+2 c 9 x r
+
+3 x 3 x r
+3 c 3 c r
+3 a 12 x r
+3 b 13 x r
+
+4 a 4 a r
+4 b 4 b r
+4 x 4 x r
+4 c 6 x r
+
+5 a 5 a r
+5 x 5 x r
+5 c 5 c r
+5 b 6 x r
+
+8 b 8 b r
+8 x 8 x r
+8 a 8 a r
+8 c 6 x r
+
+9 b 9 b r
+9 x 9 x r
+9 c 9 c r
+9 a 6 x r
+
+12 x 12 x r
+12 a 12 a r
+12 x 12 x r
+12 b 6 x r
+
+13 c 13 c r
+13 b 13 b r
+13 x 13 x r
+13 a 6 x r
+
+6 a 7 a l
+6 # 7 # l
+6 b 7 b l
+6 c 7 c l
+6 x 7 x l
+
+7 a 7 a l
+7 b 7 b l
+7 c 7 c l
+7 x 7 x l
+7 # 0 # r

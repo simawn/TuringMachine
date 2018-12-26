@@ -36,6 +36,10 @@ public class TuringMachine {
 			while(scTFile.hasNextLine()) {
 				String lContent = scTFile.nextLine().trim();
 				
+				if(lContent.length() > 0 && lContent.charAt(0) == '/') { //Ignores comments
+					continue;
+				}
+				
 				if(line == 0) { //Set initial State
 					this.curState = this.iniState = Integer.parseInt(lContent);
 				} else if(line == 1) { //Set final state(s)
@@ -63,11 +67,19 @@ public class TuringMachine {
 	
 	public void runInput(String input) {
 		this.tape = new Tape(input);
+		
 		while(this.curStep < TuringMachine.MAX_STEPS) { //While the max number of steps is not reached.
+			
+			if (this.displayTape) {
+				//System.out.println("Current State: " + this.curState);
+				this.tape.displayTape();
+			}
+			
 			if(this.finState.contains(this.curState)) { //When it enters a final state
 				System.out.println("Input " + input + " is accepted! Done in " + this.curStep + " step(s).");
 				break;
 			}
+			
 			//Getting data from transition diagram
 			char reading = this.tape.read();
 			//Checking if there are outer transitions for that particular character (reading) at the current state.
@@ -91,10 +103,6 @@ public class TuringMachine {
 			} else {
 				System.out.println("Move error");
 				System.exit(3);
-			}
-			
-			if (this.displayTape) {
-				this.tape.displayTape();
 			}
 			
 			this.curState = nextState;
