@@ -62,8 +62,17 @@ class Tape {
 	}
 	
 	void displayTape() {
+		for(int i = 0; i < 20; i++) { //Hacky way to clear the console
+			System.out.println();
+		}
 		System.out.println(Arrays.toString(this.tapeRoll.values().toArray()));
 		System.out.println(Arrays.toString(this.headTrack.values().toArray()));
-		System.out.println();
+		
+		try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

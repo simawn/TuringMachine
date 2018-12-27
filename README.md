@@ -1,5 +1,7 @@
 # Turing Machine
 
+![](tm.gif)
+
 A standard Turing Machine simulator in Java under those assumptions:
 - The tape is infinite on both side
 - Allowed directions: Left, Right
@@ -16,7 +18,7 @@ Following the format for transition function:
 ```sh
 δ(q1, a) = (q2, b, r)
 ```
-(Current in state 'q1', reading an 'a', go to state 'q2', write 'b', move right)
+(Currently in state 'q1', reading an 'a', go to state 'q2', write 'b', move right)
 
 The input format of the .txt should be:
 ```sh
@@ -31,6 +33,7 @@ The input format of the .txt should be:
 
 Example transition.txt:
 ```sh
+//some comment
 0
 0 5
 0 a 1 x r

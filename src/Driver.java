@@ -23,5 +23,6 @@ public class Driver {
 				done = true;
 			}
 		}
+		sc.close();
 	}
 }
